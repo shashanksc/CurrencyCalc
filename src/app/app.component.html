@@ -1,0 +1,37 @@
+<html>
+  <body>
+    <div id="heading">Currency Calculator</div>
+
+    <div id="main">
+      <form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)">
+        <label for="amount">Amount:</label>
+        <input type="text" [(ngModel)]="amount" id="amount" name="amount" />
+        <br />
+        <label for="fromCurrency">Source Currency:</label>
+        <select
+          id="fromCurrency"
+          [(ngModel)]="fromCurrency"
+          name="fromCurrency"
+        >
+          <option value=" 1.126735">USD</option>
+          <option value="0.876893">GBP</option>
+          <option value="79.677056">INR</option>
+        </select>
+        <br />
+        <label for="toCurrency">Target Currency:</label>
+        <select id="toCurrency" [(ngModel)]="toCurrency" name="toCurrency">
+          <option value="1.126735">USD</option>
+          <option value="0.876893">GBP</option>
+          <option value="79.677056">INR</option>
+        </select>
+        <br />
+        <p id="resValue" #resValue>
+          {{ a | conv : fromCurrency : toCurrency }}
+        </p>
+
+        <br />
+        <button id="submitButton" type="submit">Convert</button>
+      </form>
+    </div>
+  </body>
+</html>
